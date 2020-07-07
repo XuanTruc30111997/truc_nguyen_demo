@@ -12,7 +12,6 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableJpaAuditing
-@EnableBatchProcessing
 @EnableSwagger2
 public class TrucNguyenDemoApplication {
 

@@ -13,6 +13,18 @@ public class Student extends People {
     @JoinColumn(name = "CLASS_ID", nullable = false)
     private Class clss;
 
+    public Student(String firstName, String lastName, int age)
+    {
+        this.setFirstName(firstName);
+        this.setLastName(lastName);
+        this.setAge(age);
+    }
+
+    public Student()
+    {
+
+    }
+
     public Class getClss()
     {
         return clss;
