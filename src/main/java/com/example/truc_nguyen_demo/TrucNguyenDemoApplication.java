@@ -1,5 +1,6 @@
 package com.example.truc_nguyen_demo;
 
+import org.springframework.batch.core.configuration.annotation.EnableBatchProcessing;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -11,6 +12,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
 @SpringBootApplication
 @EnableJpaAuditing
+@EnableBatchProcessing
 @EnableSwagger2
 public class TrucNguyenDemoApplication {
 
