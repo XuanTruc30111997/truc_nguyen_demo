@@ -7,7 +7,7 @@ import org.springframework.data.repository.query.Param;
 import java.util.List;
 import java.util.Set;
 
-public interface ITecherService {
+public interface ITeacherService {
     void deleteTeacher(Long id);
     List<Teacher> findTeacherByFirstNames(Set<String> firstName);
 }

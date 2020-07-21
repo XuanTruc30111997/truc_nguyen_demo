@@ -1,14 +1,9 @@
 package com.example.truc_nguyen_demo.service.teacherService;
 
 import com.example.truc_nguyen_demo.exception.ResourceNotFoundException;
-import com.example.truc_nguyen_demo.model.Entity.Class;
 import com.example.truc_nguyen_demo.model.Entity.Teacher;
 import com.example.truc_nguyen_demo.repository.ITeacherRepository;
-import org.hibernate.annotations.Parameter;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.query.Param;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityManager;
@@ -20,7 +15,7 @@ import java.util.Optional;
 import java.util.Set;
 
 @Service
-public class TeacherService implements ITecherService {
+public class TeacherService implements ITeacherService {
 
     @Autowired
     ITeacherRepository teacherRepository;
@@ -38,7 +33,6 @@ public class TeacherService implements ITecherService {
         }
 
         Teacher myTeacher = teacher.get();
-        Set<Class> classes = myTeacher.ahihi();
 
         myTeacher.removeClassAhihi();
 
