@@ -1,5 +1,7 @@
 package com.example.truc_nguyen_demo.model.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
@@ -12,15 +14,17 @@ import java.util.Set;
 @EntityListeners(AuditingEntityListener.class)
 public class Class {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank(message = "Class Name is required")
     @Column(name = "NAME", unique = true)
     private String name;
 
-    @ManyToMany(cascade = CascadeType.PERSIST)
-    @JoinTable(name = "Teach", joinColumns = {@JoinColumn(referencedColumnName = "id")}, inverseJoinColumns = {@JoinColumn(referencedColumnName = "id")})
+    @ManyToMany(cascade = {CascadeType.PERSIST, CascadeType.MERGE})
+    @JoinTable(name = "Class_Teacher",
+            joinColumns = @JoinColumn(name = "class_id"),
+            inverseJoinColumns = {@JoinColumn(name = "teacher_id")})
+    @JsonManagedReference
     private Set<Teacher> teachers = new HashSet<>();
 
     public Long getId()

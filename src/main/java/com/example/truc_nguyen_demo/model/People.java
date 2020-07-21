@@ -8,7 +8,6 @@ import javax.validation.constraints.NotBlank;
 @MappedSuperclass
 public class People {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @NotBlank(message = "First Name is required")
